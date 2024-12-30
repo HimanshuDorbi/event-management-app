@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const eventController_1 = require("../controllers/eventController");
+const authMiddleware_1 = require("../middleware/authMiddleware");
+const router = (0, express_1.Router)();
+router.post('/events', authMiddleware_1.verifyToken, (req, res) => (0, eventController_1.createEvent)(req, res));
+router.get('/events', eventController_1.getAllEvents);
+router.post('/events/:id/register', authMiddleware_1.verifyToken, (req, res) => (0, eventController_1.registerForEvent)(req, res));
+router.delete('/events/:id/cancel', authMiddleware_1.verifyToken, (req, res) => (0, eventController_1.cancelRegistration)(req, res));
+router.put('/events/:id', authMiddleware_1.verifyToken, (req, res) => (0, eventController_1.updateEvent)(req, res));
+router.delete('/events/:id', authMiddleware_1.verifyToken, (req, res) => (0, eventController_1.deleteEvent)(req, res));
+exports.default = router;
