@@ -39,3 +39,36 @@ This is a full-stack event management application that allows users and authors 
    ```bash
    git clone https://github.com/yourusername/event-management-app.git
    cd event-management-app
+
+
+   Backend Setup:
+
+Navigate to the backend directory:
+
+```bash
+cd backend
+
+Install the dependencies:
+npm install
+
+Create a .env file in the backend directory and add the following environment variables
+PORT=5000
+MONGO_URI=mongodb://localhost:27017/event_management
+JWT_SECRET=your_jwt_secret_key
+
+Start the backend server:
+npm start
+
+
+Frontend Setup:
+Navigate to the frontend directory:
+cd ../frontend
+
+Install the dependencies:
+npm install
+
+
+Start the frontend development server:
+npm start
+Open your browser and go to http://localhost:3000
+
